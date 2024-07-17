@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attririon</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="static/Style.css">
+</head>
+<!-- 
+    'Over18': ['Y'],  always yes
+
+
+
+    new_data = {
+    'Age': [42],
+    'BusinessTravel': ['Travel_Rarely'],
+    'DailyRate': [900],
+    'Department': ['Research & Development'],
+    'DistanceFromHome': [5],
+    'Education': [3],
+    'EducationField': ['Life Sciences'],
+
+
+
+    'EmployeeCount': [1],
+    'EmployeeNumber': [2],
+    'EnvironmentSatisfaction': [3],
+    'Gender': ['Male'],
+    'HourlyRate': [75],
+    'JobInvolvement': [2],
+    'JobLevel': [2],
+    'JobRole': ['Research Scientist'],
+    'JobSatisfaction': [2],
+    'MaritalStatus': ['Married'],
+    'MonthlyIncome': [6000],
+    'MonthlyRate': [15000],
+    'NumCompaniesWorked': [5],
+    'Over18': ['Y'],
+    'OverTime': ['No'],
+    'PercentSalaryHike': [15],
+    'PerformanceRating': [3],
+    'RelationshipSatisfaction': [3],
+    'StandardHours': [80],
+    'StockOptionLevel': [1],
+    'TotalWorkingYears': [10],
+    'TrainingTimesLastYear': [8],
+    'WorkLifeBalance': [4],
+    'YearsAtCompany': [1],
+    'YearsInCurrentRole': [10],
+    'YearsSinceLastPromotion': [5],
+    'YearsWithCurrManager': [2],
+    'Workmode': ['Onsite'],
+    'Appreciation': ['Positive'],
+    'Toxic culture': ['not prone'],
+    'Bad Hiring process': ['Good']
+}
+ -->
+<body>
+    <h1>Attrition Factors and It's Influence on Attrition</h1><br><br>
+    <!-- <form class="fi" id="adding_task" action="{{url_for('index')}}" method="post">
+        <label for="task" class= "task_button">Enter The Factor of Attrition:</label>
+        <input type="text" placeholder="Factor" name="factor" id="task">
+        <input type="submit" value="Enter">
+    </form><br> -->
+    <div class="d-flex justify-content-center">
+        <form action="{{url_for('index')}}" method="post">
+            <input type="number" placeholder="Age" name="Age" id=""><br><br>
+            <select name="BusinessTravel">
+                <option selected>Business Travel</option>
+                <option value="Non-Travel" >Non Travel</option>
+                <option value="Travel_Rarely" >Travel Rarely</option>
+                <option value="Travel_Frequently">Travel_Frequently</option>
+            </select><br><br>
+            <input type="number" placeholder="DailyRate" name="DailyRate" id=""><br><br>
+            <select name="Department">
+                <option selected>Department</option>
+                <option value="Sales" >Sales</option>
+                <option value="Research & Development" >Research & Development</option>
+                <option value="Human Resources">Human Resources</option>
+            </select><br><br>
+            <input type="number" placeholder="DistanceFromHome" name="DistanceFromHome" id=""><br><br>
+            <input type="number" placeholder="Education" name="Education" id=""><br><br>
+            <select name="EducationField">
+                <option selected>Education Field</option>
+                <option value="Life Sciences" >Life Sciences</option>
+                <option value="Medical">Medical</option>
+                <option value="Marketing">Marketing</option>
+                <option value="Technical Degree">Technical Degree</option>
+                <option value="Human Resources">Human Resources</option>
+                <option value="other" >other</option>
+            </select><br><br>
+            <input type="number" placeholder="EmployeeCount" name="EmployeeCount" id=""><br><br>
+            <input type="number" placeholder="EmployeeNumber" name="EmployeeNumber" id=""><br><br>
+            <input type="number" placeholder="EnvironmentSatisfaction" name="EnvironmentSatisfaction" id=""><br><br>
+            <select name="Gender">
+                <option selected>Gender</option>
+                <option value="Male" >Male</option>
+                <option value="Female">Female</option>
+            </select><br><br>
+            <input type="number" placeholder="HourlyRate" name="HourlyRate" id=""><br><br>
+            <input type="number" placeholder="JobInvolvement" name="JobInvolvement" id=""><br><br>
+            <input type="number" placeholder="JobLevel" name="JobLevel" id=""><br><br>
+            <select name="JobRole">
+                <option selected>JobRole</option>
+                <option value="Sales Executive" >Sales Executive</option>
+                <option value="Research Scientist">Research Scientist</option>
+                <option value="Laboratory Technician">Laboratory Technician</option>
+                <option value="Laboratory Technician">Laboratory Technician</option>
+                <option value="Healthcare Representative">Healthcare Representative</option>
+                <option value="Manager">Manager</option>
+                <option value="Sales Representative">Sales Representative</option>
+                <option value="Research Director">Research Director</option>
+                <option value="Human Resources">Human Resources</option>
+            </select><br><br>
+            <input type="number" placeholder="JobSatisfaction" name="JobSatisfaction" id=""><br><br>
+            <select name="MaritalStatus">
+                <option selected>MaritalStatus</option>
+                <option value="Single" >Single</option>
+                <option value="Married">Married</option>
+                <option value="Divorced">Divorced</option>
+            </select><br><br>
+            <input type="number" placeholder="MonthlyIncome" name="MonthlyIncome" id=""><br><br>
+            <input type="number" placeholder="MonthlyRate" name="MonthlyRate" id=""><br><br>
+            <input type="number" placeholder="NumCompaniesWorked" name="NumCompaniesWorked" id=""><br><br>
+            <select name="OverTime">
+                <option selected>OverTime</option>
+                <option value="Yes" >Yes</option>
+                <option value="No">No</option>
+            </select><br><br>
+            <input type="number" placeholder="PercentSalaryHike" name="PercentSalaryHike" id=""><br><br>
+            <input type="number" placeholder="PerformanceRating" name="PerformanceRating" id=""><br><br>
+            <input type="number" placeholder="RelationshipSatisfaction" name="RelationshipSatisfaction" id=""><br><br>
+            <input type="number" placeholder="StandardHours" name="StandardHours" id=""><br><br>
+            <input type="number" placeholder="StockOptionLevel" name="StockOptionLevel" id=""><br><br>
+            <input type="number" placeholder="TotalWorkingYears" name="TotalWorkingYears" id=""><br><br>
+            <input type="number" placeholder="TrainingTimesLastYear" name="TrainingTimesLastYear" id=""><br><br>
+            <input type="number" placeholder="WorkLifeBalance" name="WorkLifeBalance" id=""><br><br>
+            <input type="number" placeholder="YearsAtCompany" name="YearsAtCompany" id=""><br><br>
+            <input type="number" placeholder="YearsInCurrentRole" name="YearsInCurrentRole" id=""><br><br>
+            <input type="number" placeholder="YearsSinceLastPromotion" name="YearsSinceLastPromotion" id=""><br><br>
+            <input type="number" placeholder="YearsWithCurrManager" name="YearsWithCurrManager" id=""><br><br>
+            <select name="Workmode">
+                <option selected>Workmode</option>
+                <option value="Onsite">Onsite</option>
+                <option value="Hybrid" >Hybrid</option>
+                <option value="Remote">Remote</option>
+            </select><br><br>
+            <select name="Appreciation">
+                <option selected>Appreciation</option>
+                <option value="Negative">Negative</option>
+                <option value="Positive" >Positive</option>
+            </select><br><br>
+            <select name="Toxic culture">
+                <option selected>Toxic culture</option>
+                <option value="not prone">not prone</option>
+                <option value="prone" >prone</option>
+            </select><br><br>
+            <select name="Bad Hiring process">
+                <option selected>Hiring Process</option>
+                <option value="Good">Good</option>
+                <option value="Bad" >Bad</option>
+            </select><br><br><br>
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+</body>
+</html>
